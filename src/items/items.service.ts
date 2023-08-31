@@ -9,4 +9,9 @@ export class ItemsService {
   async findAll(): Promise<Item[]> {
     return await this.itemModel.find();
   }
+
+  async create(item: Item): Promise<Item> {
+    const newItem = new this.itemModel(item);
+    return await newItem.save();
+  }
 }
